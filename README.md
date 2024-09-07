@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# Mini-E-commerce-Website
+Built a mock e-commerce website using React and Redux, styled with Semantic UI's minimal CSS. The app connects to the FakeShop API to display products, allowing users to browse and search through items while managing state efficiently
+>>>>>>> 09bc41f24e83f83472f06193f7f90a460be0350c
