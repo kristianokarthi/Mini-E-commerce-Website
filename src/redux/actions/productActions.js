@@ -4,7 +4,7 @@ import fakeStoreApi from "../../apis/fakeStoreApi";
 export const fetchproducts = () => async (dispatch) => {
     const response = await fakeStoreApi.get("/products");
     const productsWithDiscount = response.data.map((product) => {
-        const discountPercentage = calculateDiscountPercentage(product.price, product.rating);
+        const discountPercentage = calculateDiscountPercentage(product.price, product.rating?.rate);
         return { ...product, discount: discountPercentage };
     });
 
