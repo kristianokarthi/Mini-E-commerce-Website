@@ -3,11 +3,25 @@ import fakeStoreApi from "../../apis/fakeStoreApi";
 
 export const fetchproducts = () => async (dispatch) => {
     const response = await fakeStoreApi.get("/products");
+    const productsWithDiscount = response.data.map((product) => {
+        const discountPercentage = calculateDiscountPercentage(product.price, product.rating);
+        return { ...product, discount: discountPercentage };
+    });
 
     dispatch({
         type: ActionTypes.FETCH_PRODUCTS,
-        payload: response.data,
+        payload: productsWithDiscount,
     });
+};
+
+const calculateDiscountPercentage = (price, rating) => {
+    if (rating > 4.5) {
+        return Math.floor((price * 0.1) / price * 100);
+    } else if (rating > 4) {
+        return Math.floor((price * 0.05) / price * 100);
+    } else {
+        return 0;
+    }
 };
 
 export const fetchproduct = (id) => async (dispatch) => {
