@@ -4,7 +4,7 @@ import ProductComponent from "./ProductComponent";
 import { fetchproducts } from "../redux/actions/productActions";
 
 const ProductListing = () => {
-    const products = useSelector((state) => state);
+    const productList = useSelector((state) => state.allProducts?.products || []);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,7 +20,12 @@ const ProductListing = () => {
         console.log("value --->", e.target.value);
     };
 
-    console.log(products);
+    const roundedProducts = productList.map((product) => ({
+        ...product,
+        price: Number(product.price.toFixed(2)),
+    }));
+
+    console.log(roundedProducts);
 
     return (
         <>
@@ -43,10 +48,10 @@ const ProductListing = () => {
             </div>
 
             <div className="ui grid">
-                <ProductComponent />
+                <ProductComponent products={roundedProducts} />
             </div>
         </>
     );
 };
 
-export default ProductListing;
+export default ProductListing

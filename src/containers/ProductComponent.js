@@ -34,11 +34,11 @@ const ProductComponent = () => {
                                     <div className="meta price">
                                         {discount > 0 ? (
                                             <span>
-                                                <strike>$ {price}</strike>
-                                                $ {price - (price * discount / 100)}
+                                                <strike>$ {price.toFixed(2)}</strike>
+                                                $ {(price - (price * discount / 100)).toFixed(2)}
                                             </span>
                                         ) : (
-                                            <span>$ {price}</span>
+                                            <span>$ {price.toFixed(2)}</span>
                                         )}
                                     </div>
                                     <div className="meta">{category}</div>
